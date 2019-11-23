@@ -10,8 +10,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import modelo.Bloq_Mayus;
-import modelo.ConsultaClientesSQL;
-import modelo.ModeloClientes;
+import modelo.sql.ConsultaClientesSQL;
+import modelo.entidades.ModeloClientes;
 import vista.Panel_Clientes;
 
 public final class ControlClientes implements ActionListener

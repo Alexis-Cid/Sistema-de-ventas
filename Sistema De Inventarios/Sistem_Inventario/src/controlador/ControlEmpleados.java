@@ -12,8 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
 import modelo.Bloq_Mayus;
-import modelo.ConsultaEmpleadosSQL;
-import modelo.ModeloEmpleados;
+import modelo.sql.ConsultaEmpleadosSQL;
+import modelo.entidades.ModeloEmpleados;
 import vista.Panel_Empleados;
 
 public final class ControlEmpleados implements ActionListener {

@@ -1,5 +1,6 @@
-package modelo;
+package modelo.sql;
 
+import modelo.entidades.ModeloClientes;
 import conectorMySQL.Conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

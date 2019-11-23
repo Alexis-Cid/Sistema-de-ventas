@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package modelo.sql;
 
 import conectorMySQL.Conectar;
 
 /**
  *
- *
+ 
  */
-public class mapeo_rolesSQL extends Conectar
+public class rolesSQL extends  Conectar
 {
     Conectar con=null;
 }

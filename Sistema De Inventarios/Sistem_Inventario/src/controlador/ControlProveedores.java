@@ -11,8 +11,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import modelo.Bloq_Mayus;
-import modelo.ConsultaProveedoresSQL;
-import modelo.ModeloProveedores;
+import modelo.sql.ConsultaProveedoresSQL;
+import modelo.entidades.ModeloProveedores;
 import vista.Panel_Proveedor;
 
 public class ControlProveedores implements ActionListener

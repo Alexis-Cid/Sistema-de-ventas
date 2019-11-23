@@ -1,4 +1,4 @@
-package modelo;
+package modelo.entidades;
 
 public class ModeloProveedores 
 {
@@ -11,7 +11,9 @@ public class ModeloProveedores
     private String Direccion;
 
     
-    ModeloProveedores(String Codigo, String Nombre, String Apellido_Paterno, String Apellido_Materno, String Empresa, String Telefono, String Direccion)
+    public ModeloProveedores(String Codigo, String Nombre, 
+            String Apellido_Paterno, String Apellido_Materno, 
+            String Empresa, String Telefono, String Direccion)
     {
         this.Codigo = Codigo;
         this.Nombre = Nombre;

@@ -16,8 +16,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ControlClientes;
-import modelo.ConsultaClientesSQL;
-import modelo.ModeloClientes;
+import modelo.sql.ConsultaClientesSQL;
+import modelo.entidades.ModeloClientes;
 
 /**
  * 

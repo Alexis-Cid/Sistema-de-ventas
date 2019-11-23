@@ -10,8 +10,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ControlEmpleados;
-import modelo.ConsultaEmpleadosSQL;
-import modelo.ModeloEmpleados;
+import modelo.sql.ConsultaEmpleadosSQL;
+import modelo.entidades.ModeloEmpleados;
 
 /**
  * 

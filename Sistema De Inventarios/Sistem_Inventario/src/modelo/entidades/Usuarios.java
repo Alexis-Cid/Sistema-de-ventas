@@ -1,5 +1,5 @@
 
-package modelo;
+package modelo.entidades;
 
 public class Usuarios 
 {
