@@ -16,8 +16,7 @@ public class Conectar {
     private static final String password = "";
     private static final String url = "jdbc:mysql://localhost:3306/blancos";
 
-    public Conectar() {
-        con = null;
+    public Connection getConnection() {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(this.url, this.user, this.password);
@@ -28,9 +27,6 @@ public class Conectar {
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("ERROR DE CONEXION = " + e);
         }
-    }
-
-    public Connection getConnection() {
         return con;
     }
 

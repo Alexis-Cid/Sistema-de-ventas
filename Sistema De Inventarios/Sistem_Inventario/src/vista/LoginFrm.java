@@ -30,7 +30,7 @@ public class LoginFrm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jCSlidePanel1 = new vista.utilidades.JCSlidePanel();
+        slidePanel = new vista.utilidades.JCSlidePanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -41,7 +41,7 @@ public class LoginFrm extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel2.add(jCSlidePanel1);
+        jPanel2.add(slidePanel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -107,10 +107,10 @@ public class LoginFrm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.utilidades.JCSlidePanel jCSlidePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public vista.utilidades.JCSlidePanel slidePanel;
     // End of variables declaration//GEN-END:variables
 }

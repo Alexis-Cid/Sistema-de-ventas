@@ -108,4 +108,93 @@ public class UsuariosSQL extends Conectar {
             }
         }
     }
+    
+    public boolean siExisteUsuario(Usuarios modelo)
+    {
+        PreparedStatement stmt;
+        ResultSet rs;
+        System.out.println(modelo.getUsuario());
+        try {
+            conectar = getConnection();
+            stmt = conectar.prepareStatement("SELECT * FROM usuarios WHERE Usuario = ?");
+            stmt.setString(1, modelo.getUsuario());
+            rs = stmt.executeQuery();
+            return rs.next();
+        } 
+        catch (SQLException e) {
+            
+        }
+        finally
+        {
+            try {
+                conectar.close();
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return false;
+    }
+    
+    public Usuarios usuarioLogueado(Usuarios modelo)
+    {
+        PreparedStatement stmt;
+        ResultSet rs;
+        Usuarios usuario = new Usuarios();
+        System.out.println(modelo.getUsuario());
+        try {
+            conectar = getConnection();
+            stmt = conectar.prepareStatement("SELECT * FROM usuarios WHERE Usuario = ?");
+            stmt.setString(1, modelo.getUsuario());
+            rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                usuario.setId_Usuario(Integer.parseInt(rs.getString("id")));
+                usuario.setNombre_usuario(rs.getString("Nombre"));
+                usuario.setUsuario(rs.getString("Usuario"));
+                usuario.setPerfil(rs.getString("Perfil"));
+                usuario.setEstado(rs.getInt("estado"));
+            }
+        } 
+        catch (SQLException e) {
+            
+        }
+        finally
+        {
+            try {
+                conectar.close();
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return usuario;
+    }
+    
+    public boolean iniciarSesion(Usuarios modelo)
+    {
+        PreparedStatement stmt;
+        ResultSet rs;
+        //System.out.println(modelo.getUsuario());
+        try {
+            conectar = getConnection();
+            stmt = conectar.prepareStatement("SELECT * FROM usuarios WHERE Usuario = ? and"
+                    + " Password = ?");
+            stmt.setString(1, modelo.getUsuario());
+            stmt.setString(2, modelo.getPassword());
+            rs = stmt.executeQuery();
+            if(rs.next())
+                return true;
+        } 
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        finally
+        {
+            try {
+                conectar.close();
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return false;
+    }
 }

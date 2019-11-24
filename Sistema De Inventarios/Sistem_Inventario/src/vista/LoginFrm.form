@@ -41,7 +41,10 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
-            <Component class="vista.utilidades.JCSlidePanel" name="jCSlidePanel1">
+            <Component class="vista.utilidades.JCSlidePanel" name="slidePanel">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

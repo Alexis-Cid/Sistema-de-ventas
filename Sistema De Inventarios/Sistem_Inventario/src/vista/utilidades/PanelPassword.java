@@ -16,6 +16,7 @@ public class PanelPassword extends javax.swing.JPanel {
      */
     public PanelPassword() {
         initComponents();
+        
     }
 
     /**
@@ -30,11 +31,12 @@ public class PanelPassword extends javax.swing.JPanel {
 
         btnIniciarSesion = new com.bolivia.login.swing.JCButton();
         cLabel1 = new com.bolivia.login.swing.CLabel();
-        txtPassword = new com.bolivia.login.swing.JCTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblUser = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        btnRetroceder = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         lblError = new javax.swing.JLabel();
+        lblPerfil = new javax.swing.JLabel();
+        txtPassword = new rojerusan.RSPasswordTextPlaceHolder();
 
         setBackground(new java.awt.Color(247, 247, 247));
         setPreferredSize(new java.awt.Dimension(358, 317));
@@ -44,7 +46,7 @@ public class PanelPassword extends javax.swing.JPanel {
         btnIniciarSesion.setPreferredSize(new java.awt.Dimension(278, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         add(btnIniciarSesion, gridBagConstraints);
 
@@ -56,56 +58,65 @@ public class PanelPassword extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         add(cLabel1, gridBagConstraints);
 
-        txtPassword.setPlaceholder("Ingrese su contraseña");
-        txtPassword.setPreferredSize(new java.awt.Dimension(278, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(15, 40, 0, 40);
-        add(txtPassword, gridBagConstraints);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Usuario");
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNombre.setText("Administrador");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        add(jLabel1, gridBagConstraints);
+        add(lblNombre, gridBagConstraints);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ic_arrow.png"))); // NOI18N
+        btnRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ic_arrow.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
-        add(jLabel2, gridBagConstraints);
+        add(btnRetroceder, gridBagConstraints);
 
-        lblUser.setText("Administrador");
-        lblUser.setToolTipText("");
+        lblUsuario.setText("Administrador");
+        lblUsuario.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        add(lblUser, gridBagConstraints);
+        add(lblUsuario, gridBagConstraints);
 
         lblError.setForeground(new java.awt.Color(221, 75, 57));
         lblError.setText("Error");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         add(lblError, gridBagConstraints);
+
+        lblPerfil.setText("Administrador");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        add(lblPerfil, gridBagConstraints);
+
+        txtPassword.setForeground(new java.awt.Color(87, 87, 87));
+        txtPassword.setPlaceholder("Ingrese su contraseña");
+        txtPassword.setPreferredSize(new java.awt.Dimension(278, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(15, 40, 0, 40);
+        add(txtPassword, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public com.bolivia.login.swing.JCButton btnIniciarSesion;
+    public javax.swing.JLabel btnRetroceder;
     private com.bolivia.login.swing.CLabel cLabel1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel lblError;
-    private javax.swing.JLabel lblUser;
-    public com.bolivia.login.swing.JCTextField txtPassword;
+    public javax.swing.JLabel lblNombre;
+    public javax.swing.JLabel lblPerfil;
+    public javax.swing.JLabel lblUsuario;
+    public rojerusan.RSPasswordTextPlaceHolder txtPassword;
     // End of variables declaration//GEN-END:variables
 }

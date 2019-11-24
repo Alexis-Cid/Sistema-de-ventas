@@ -12,6 +12,8 @@ import vista.LoginFrm;
 import vista.User_Admin;
 import vista.User_Empleado;
 
+import modelo.entidades.Usuarios;
+import modelo.sql.UsuariosSQL;
 /**
  *
  * @author ALEXIS
@@ -20,15 +22,101 @@ import vista.User_Empleado;
 public class FuncionesLogin implements ActionListener, MouseListener, MouseMotionListener {
 
     private LoginFrm plog;
+    Usuarios modeloUsuario;
+    UsuariosSQL sqlUsuario;
     int x, y;
     Conectar con;
 
-    public FuncionesLogin(LoginFrm plog) {
+    public FuncionesLogin(LoginFrm plog, Usuarios modeloUsuario, UsuariosSQL sqlUsuario) {
         this.plog = plog;
+        this.modeloUsuario = modeloUsuario;
+        this.sqlUsuario = sqlUsuario;
+        initialize();
         /*this.plog.btniniciar.addActionListener(this);
         this.plog.btncerrar.addActionListener(this);
         this.plog.lblprinc.addMouseListener(this);
         this.plog.lblprinc.addMouseMotionListener(this);*/
+    }
+    
+    private void initialize()
+    {
+        plog.setTitle("Log-In");
+        plog.setLocationRelativeTo(null);
+        plog.setVisible(true);
+        plog.slidePanel.userPanel.lblError.setText("");
+        plog.slidePanel.passPanel.lblError.setText("");
+        
+        plog.slidePanel.userPanel.btnNext.addActionListener(this::btnSiguiente);
+        plog.slidePanel.passPanel.btnIniciarSesion.addActionListener(this::btnIniciarSesion);
+        plog.slidePanel.passPanel.btnRetroceder.addMouseListener(new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                plog.slidePanel.moveRight();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+    }
+    
+    public void btnSiguiente(ActionEvent evt)
+    {
+        modeloUsuario.setUsuario(plog.slidePanel.userPanel.txtUser.getText());
+        if(sqlUsuario.siExisteUsuario(modeloUsuario))
+        {
+         //   plog.slidePanel.moveLeft();
+            Usuarios encontrado = new Usuarios();
+            encontrado = sqlUsuario.usuarioLogueado(modeloUsuario);
+            if(encontrado.getEstado() == 0)
+            {
+                plog.slidePanel.userPanel.lblError.setText("El usuario no esta activo");
+            }
+            else
+            {
+                plog.slidePanel.moveLeft();
+                plog.slidePanel.passPanel.lblNombre.setText(encontrado.getNombre_usuario());
+                plog.slidePanel.passPanel.lblUsuario.setText(encontrado.getUsuario());
+                plog.slidePanel.passPanel.lblPerfil.setText(encontrado.getPerfil());
+            }
+        }
+        else
+        {
+            plog.slidePanel.userPanel.lblError.setText("El usuario es incorrecto");
+        }
+    }
+    
+    public void btnIniciarSesion(ActionEvent evt)
+    {
+        System.out.println(plog.slidePanel.passPanel.txtPassword.getText());
+        modeloUsuario.setPassword(plog.slidePanel.passPanel.txtPassword.getText());
+        if(sqlUsuario.iniciarSesion(modeloUsuario))
+        {
+            User_Admin admin = new User_Admin();
+            admin.setVisible(true);
+            plog.dispose();
+        }
+        else
+        {
+            plog.slidePanel.passPanel.lblError.setText("La contraseña es incorrecta");
+        }
+        
     }
 
     @Override
