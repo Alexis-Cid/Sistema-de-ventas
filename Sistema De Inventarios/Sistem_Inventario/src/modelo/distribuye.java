@@ -1,8 +1,7 @@
-
 package modelo;
 
-public class distribuye 
-{
+public class distribuye {
+
     private String Codigo;
     private String CodigoProducto;
     private String CodigoProveedor;
@@ -48,6 +47,5 @@ public class distribuye
     public void setCantidad_comprada(int cantidad_comprada) {
         this.cantidad_comprada = cantidad_comprada;
     }
-    
-    
+
 }

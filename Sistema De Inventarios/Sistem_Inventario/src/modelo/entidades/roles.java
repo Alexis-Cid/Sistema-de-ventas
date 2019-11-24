@@ -1,8 +1,7 @@
-
 package modelo.entidades;
 
-public class roles 
-{
+public class roles {
+
     private int Id_Rol;
     private String Nombre_Rol;
     private String Descripcion;
@@ -30,6 +29,5 @@ public class roles
     public void setDescripcion(String Descripcion) {
         this.Descripcion = Descripcion;
     }
-    
-    
+
 }

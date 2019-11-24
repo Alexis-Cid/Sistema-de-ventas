@@ -1,12 +1,11 @@
 package mvc;
 
-import vista.Principal_Login;
+import vista.LoginFrm;
 
-public class MVC 
-{
-    public static void main(String args[])
-    {
-	Principal_Login princ = new Principal_Login();
-	princ.setVisible(true);
+public class MVC {
+
+    public static void main(String args[]) {
+        LoginFrm princ = new LoginFrm();
+        princ.setVisible(true);
     }
 }

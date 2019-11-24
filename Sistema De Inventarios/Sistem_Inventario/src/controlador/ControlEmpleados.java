@@ -22,7 +22,7 @@ public final class ControlEmpleados implements ActionListener {
     private final ModeloEmpleados modEmpleados;
     private final ConsultaEmpleadosSQL modConsulta;
     private int seleccion;
-    
+
     DefaultTableModel modeloTabla;
 
     public ControlEmpleados(Panel_Empleados pEmpleados, ModeloEmpleados modEmpleados, ConsultaEmpleadosSQL modConsulta) {
@@ -42,9 +42,9 @@ public final class ControlEmpleados implements ActionListener {
         this.pEmpleados.txtdireccion.setDocument(new Bloq_Mayus());
         this.pEmpleados.txta.setDocument(new Bloq_Mayus());
         this.pEmpleados.txtcontra.setDocument(new Bloq_Mayus());
-        
-        modeloTabla = (DefaultTableModel)pEmpleados.jtregistro.getModel();
-        pEmpleados.jtregistro.addMouseListener(new MouseListener(){
+
+        modeloTabla = (DefaultTableModel) pEmpleados.jtregistro.getModel();
+        pEmpleados.jtregistro.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Eventos(e);
@@ -52,24 +52,24 @@ public final class ControlEmpleados implements ActionListener {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                
+
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                
+
             }
-            
+
         });
         llenarTabla();
     }
@@ -95,15 +95,14 @@ public final class ControlEmpleados implements ActionListener {
 
         }
     }
-    
-    public void Eventos(MouseEvent evt)
-    {
+
+    public void Eventos(MouseEvent evt) {
         seleccion = pEmpleados.jtregistro.getSelectedRow();
         pEmpleados.btnnuevo.setEnabled(false);
         pEmpleados.btnmodificar.setEnabled(true);
         pEmpleados.btneliminar.setEnabled(true);
         pEmpleados.btnregistrar.setEnabled(true);
-        
+
         pEmpleados.txtid.setText(String.valueOf(pEmpleados.jtregistro.getValueAt(seleccion, 0)));
         pEmpleados.txtnom.setText(String.valueOf(pEmpleados.jtregistro.getValueAt(seleccion, 1)));
         pEmpleados.txtapellidoP.setText(String.valueOf(pEmpleados.jtregistro.getValueAt(seleccion, 2)));
@@ -111,11 +110,10 @@ public final class ControlEmpleados implements ActionListener {
         pEmpleados.txtnumT.setText(String.valueOf(pEmpleados.jtregistro.getValueAt(seleccion, 4)));
         pEmpleados.txtdireccion.setText(String.valueOf(pEmpleados.jtregistro.getValueAt(seleccion, 7)));
     }
-    
-    public void llenarTabla()
-    {
+
+    public void llenarTabla() {
         modeloTabla.setNumRows(0);
-        List<ModeloEmpleados>lista = modConsulta.lista();
+        List<ModeloEmpleados> lista = modConsulta.lista();
         for (int i = 0; i < lista.size(); i++) {
             modeloTabla.addRow(new Object[]{
                 lista.get(i).getCodigo(),

@@ -1,14 +1,13 @@
-
 package modelo.entidades;
 
-public class productos 
-{
-   private String Codigo;
-   private String Nombre;
-   private int Stock;
-   private int Stock_Minimo;
-   private String Categoria;
-   private String Fecha_Registro;
+public class productos {
+
+    private String Codigo;
+    private String Nombre;
+    private int Stock;
+    private int Stock_Minimo;
+    private String Categoria;
+    private String Fecha_Registro;
 
     public String getCodigo() {
         return Codigo;
@@ -57,6 +56,5 @@ public class productos
     public void setFecha_Registro(String Fecha_Registro) {
         this.Fecha_Registro = Fecha_Registro;
     }
-   
-   
+
 }

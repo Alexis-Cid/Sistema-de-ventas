@@ -1,8 +1,7 @@
-
 package modelo;
 
-public class mapeo_roles 
-{
+public class mapeo_roles {
+
     private int Id_Mapeo;
     private int Id_Rol;
     private int Id_Usuario;
@@ -30,6 +29,5 @@ public class mapeo_roles
     public void setId_Usuario(int Id_Usuario) {
         this.Id_Usuario = Id_Usuario;
     }
-    
-    
+
 }

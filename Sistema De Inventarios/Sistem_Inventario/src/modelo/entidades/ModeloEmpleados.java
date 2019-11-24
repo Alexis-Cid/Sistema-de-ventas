@@ -1,8 +1,7 @@
-
 package modelo.entidades;
 
-public class ModeloEmpleados 
-{
+public class ModeloEmpleados {
+
     private int Codigo;
     private String Nombre;
     private String Apellido_Paterno;
@@ -13,7 +12,7 @@ public class ModeloEmpleados
     private String sexo;
     private String telefono;
 
-    public ModeloEmpleados(int Codigo, String Nombre, String Apellido_Paterno, 
+    public ModeloEmpleados(int Codigo, String Nombre, String Apellido_Paterno,
             String Apellido_Materno, String Direccion, String Nacionalidad, String Fecha_Nacimiento, String sexo, String telefono) {
         this.Codigo = Codigo;
         this.Nombre = Nombre;
@@ -38,7 +37,8 @@ public class ModeloEmpleados
         this.telefono = telefono;
     }
 
-    public ModeloEmpleados(){}
+    public ModeloEmpleados() {
+    }
 
     public int getCodigo() {
         return Codigo;
@@ -111,6 +111,5 @@ public class ModeloEmpleados
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
-    
+
 }

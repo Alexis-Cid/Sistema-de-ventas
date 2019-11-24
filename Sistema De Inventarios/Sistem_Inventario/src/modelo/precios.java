@@ -1,8 +1,7 @@
-
 package modelo;
 
-public class precios 
-{
+public class precios {
+
     private String Codigo_Precios;
     private String Precio_Menudeo;
     private String Precio_Mayoreo;
@@ -39,6 +38,5 @@ public class precios
     public void setCodigo_Producto(String Codigo_Producto) {
         this.Codigo_Producto = Codigo_Producto;
     }
-    
-    
+
 }

@@ -1,8 +1,7 @@
-
 package modelo.entidades;
 
-public class venta 
-{
+public class venta {
+
     private String IdVenta;
     private String CodigoProducto;
     private String RFC_Cliente;
@@ -48,6 +47,5 @@ public class venta
     public void setPrecio_Venta(String Precio_Venta) {
         this.Precio_Venta = Precio_Venta;
     }
-    
-    
+
 }

@@ -9,9 +9,9 @@ import conectorMySQL.Conectar;
 
 /**
  *
-
+ *
  */
-public class productos_precioSQL extends Conectar
-{
-    Conectar con=null;
+public class productos_precioSQL extends Conectar {
+
+    Conectar con = null;
 }

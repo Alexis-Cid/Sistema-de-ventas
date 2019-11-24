@@ -1,8 +1,7 @@
-
 package modelo.entidades;
 
-public class Usuarios 
-{
+public class Usuarios {
+
     private int Id_Usuario;
     private String nombre_usuario;
     private String password;
@@ -30,6 +29,5 @@ public class Usuarios
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
+
 }

@@ -1,8 +1,7 @@
-
 package modelo;
 
-public class compra 
-{
+public class compra {
+
     private String IdCompra;
     private String CodigoEmpleado;
     private String CodigoProducto;
@@ -30,6 +29,5 @@ public class compra
     public void setCodigoProducto(String CodigoProducto) {
         this.CodigoProducto = CodigoProducto;
     }
-    
-    
+
 }

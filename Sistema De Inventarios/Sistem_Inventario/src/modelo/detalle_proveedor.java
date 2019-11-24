@@ -1,8 +1,7 @@
-
 package modelo;
 
-public class detalle_proveedor 
-{
+public class detalle_proveedor {
+
     private String Codigo_Proveedor;
     private String nombre_probveedor;
     private String nombre_producto;
@@ -48,6 +47,5 @@ public class detalle_proveedor
     public void setPrecio_compra(double precio_compra) {
         this.precio_compra = precio_compra;
     }
-    
-    
+
 }

@@ -1,22 +1,20 @@
 package modelo.entidades;
 
 /**
- * 
-
+ *
+ *
  *
  */
+public class ModeloClientes {
 
-public class ModeloClientes
-{
     private String nom;
     private String apP;
     private String apM;
     private String numT;
     private String direccion;
     private String rfc;
-    
-    public ModeloClientes(String nom, String apP, String apM, String numT, String direccion, String rfc)
-    {
+
+    public ModeloClientes(String nom, String apP, String apM, String numT, String direccion, String rfc) {
         this.nom = nom;
         this.apP = apP;
         this.apM = apM;
@@ -28,16 +26,13 @@ public class ModeloClientes
     public ModeloClientes(String nom, String numT, String direccion, String rfc) {
         this.nom = nom;
         this.apP = apP;
-         this.apM = apM;
+        this.apM = apM;
         this.numT = numT;
         this.direccion = direccion;
         this.rfc = rfc;
     }
-    
-    
-    
-    public ModeloClientes()
-    {
+
+    public ModeloClientes() {
         this.nom = "";
         this.apP = "";
         this.apM = "";
@@ -47,39 +42,50 @@ public class ModeloClientes
     }
 
     public String getNom() {
-	return nom;
+        return nom;
     }
+
     public void setNom(String nom) {
-	this.nom = nom;
+        this.nom = nom;
     }
+
     public String getApP() {
-	return apP;
+        return apP;
     }
+
     public void setApP(String apP) {
-	this.apP = apP;
+        this.apP = apP;
     }
+
     public String getApM() {
-	return apM;
+        return apM;
     }
+
     public void setApM(String apM) {
-	this.apM = apM;
+        this.apM = apM;
     }
+
     public String getNumT() {
-	return numT;
+        return numT;
     }
+
     public void setNumT(String numT) {
-	this.numT = numT;
+        this.numT = numT;
     }
+
     public String getDireccion() {
-    	return direccion;
+        return direccion;
     }
+
     public void setDireccion(String direccion) {
-	this.direccion = direccion;
+        this.direccion = direccion;
     }
+
     public String getRfc() {
-	return rfc;
+        return rfc;
     }
+
     public void setRfc(String rfc) {
-	this.rfc = rfc;
+        this.rfc = rfc;
     }
 }

@@ -11,7 +11,7 @@ import conectorMySQL.Conectar;
  *
  *
  */
-public class mapeo_rolesSQL extends Conectar
-{
-    Conectar con=null;
+public class mapeo_rolesSQL extends Conectar {
+
+    Conectar con = null;
 }

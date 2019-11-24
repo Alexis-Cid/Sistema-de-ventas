@@ -14,15 +14,14 @@ import modelo.sql.ConsultaClientesSQL;
 import modelo.entidades.ModeloClientes;
 import vista.Panel_Clientes;
 
-public final class ControlClientes implements ActionListener
-{
+public final class ControlClientes implements ActionListener {
+
     private final Panel_Clientes pClientes;
     private final ModeloClientes modClientes;
     private final ConsultaClientesSQL modConsulta;
     private int seleccion;
 
-    public ControlClientes(Panel_Clientes pClientes, ModeloClientes modClientes, ConsultaClientesSQL modConsulta)
-    {
+    public ControlClientes(Panel_Clientes pClientes, ModeloClientes modClientes, ConsultaClientesSQL modConsulta) {
         this.pClientes = pClientes;
         this.modClientes = modClientes;
         this.modConsulta = modConsulta;
@@ -43,10 +42,8 @@ public final class ControlClientes implements ActionListener
     }
 
     @Override
-    public void actionPerformed(ActionEvent evt)
-    {
-        if (evt.getSource() == pClientes.btnnuevo)
-        {
+    public void actionPerformed(ActionEvent evt) {
+        if (evt.getSource() == pClientes.btnnuevo) {
             limpiar();
             pClientes.txtnom.requestFocus();
             pClientes.btnnuevo.setEnabled(false);
@@ -55,16 +52,12 @@ public final class ControlClientes implements ActionListener
             pClientes.btnaceptar.setEnabled(false);
             pClientes.btneliminar.setEnabled(false);
         }
-        if (evt.getSource() == pClientes.btnregistrar)
-        {
+        if (evt.getSource() == pClientes.btnregistrar) {
             try {
                 if (pClientes.txtnom.getText().equals("") || pClientes.txtapellidoP.getText().equals("") || pClientes.txtapellidoM.getText().equals("")
-                 ||  pClientes.txtdireccion.getText().equals("") || pClientes.txtRFC.getText().equals(""))
-                {
+                        || pClientes.txtdireccion.getText().equals("") || pClientes.txtRFC.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Verifique que no quede un campo vacio ", "ERROR", 0);
-                }
-                else
-                {
+                } else {
                     modClientes.setNom(pClientes.txtnom.getText());
                     modClientes.setApP(pClientes.txtapellidoP.getText());
                     modClientes.setApM(pClientes.txtapellidoM.getText());
@@ -73,43 +66,34 @@ public final class ControlClientes implements ActionListener
                     modClientes.setRfc(pClientes.txtRFC.getText());
 
                     //BOTON MODIFICAR
-                    if (modConsulta.registrar(modClientes))
-                    {
+                    if (modConsulta.registrar(modClientes)) {
                         JOptionPane.showMessageDialog(null, "CLIENTE REGISTRADO", "EXITOSO", 1);
                         limpiar();
                         llenarTabla();
                         JOptionPane.showMessageDialog(null, "Lista actualizada");
-                    }
-                    else
-                    {
+                    } else {
                         JOptionPane.showMessageDialog(null, "ERROR AL REGISTRAR CLIENTE", "ERROR", 1);
                         limpiar();
                     }
                     pClientes.txtnom.requestFocus();
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Verifique que no quede un campo vacio , " + e, "ERROR", 0);
             }
         }
-        if (evt.getSource() == pClientes.btnmodificar)
-        {   
+        if (evt.getSource() == pClientes.btnmodificar) {
             modClientes.setNom(pClientes.txtnom.getText());
             modClientes.setApP(pClientes.txtapellidoP.getText());
             modClientes.setApM(pClientes.txtapellidoM.getText());
             modClientes.setNumT(pClientes.txtnumT.getText());
             modClientes.setDireccion(pClientes.txtdireccion.getText());
             modClientes.setRfc(pClientes.txtRFC.getText());
-            
-            if(modConsulta.actualizar(modClientes))
-            {
+
+            if (modConsulta.actualizar(modClientes)) {
                 JOptionPane.showMessageDialog(null, "Cliente modificado correctamente!", "", 1);
                 limpiar();
                 llenarTabla();
-            }
-            else
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Error al modificar", "Error", 1);
                 limpiar();
             }
@@ -118,53 +102,41 @@ public final class ControlClientes implements ActionListener
 
         }
         //BOTON ELIMINAR 
-        if (evt.getSource() == pClientes.btneliminar)
-        {
+        if (evt.getSource() == pClientes.btneliminar) {
             int filInicio = pClientes.jtregistro.getSelectedRow();
             int numfilas = pClientes.jtregistro.getSelectedRowCount();
             ArrayList<String> listaRFC = new ArrayList<>();
             String RFC;
-            if(filInicio >= 0)
-            {
-                for(int i = 0; i<numfilas; i++)
-                {
+            if (filInicio >= 0) {
+                for (int i = 0; i < numfilas; i++) {
                     RFC = String.valueOf(pClientes.jtregistro.getValueAt(i + filInicio, 5));
                     listaRFC.add(i, RFC);
                 }
 
-                for(int j = 0; j<numfilas; j++)
-                {
+                for (int j = 0; j < numfilas; j++) {
                     int rpta = JOptionPane.showConfirmDialog(null, "Desea eliminar registro con RFC : " + listaRFC.get(j) + " ? ");
-                    if(rpta==0)
-                    {
+                    if (rpta == 0) {
                         modClientes.setRfc(listaRFC.get(j));
-                        if (modConsulta.eliminar(modClientes))
-                        {
+                        if (modConsulta.eliminar(modClientes)) {
                             JOptionPane.showMessageDialog(null, "El registro fue eliminado correctamente");
                             limpiar();
                             llenarTabla();
-                        }
-                        else
-                        {
+                        } else {
                             JOptionPane.showMessageDialog(null, "Error al eliminar registro");
                             limpiar();
                         }
                     }
                 }
-            }else
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Selecione Al Menos Un Registro Para Eliminar.");
             }
         }
     }
 
-    public void Eventos()
-    {
-        pClientes.jtregistro.addMouseListener(new MouseAdapter()
-        {
+    public void Eventos() {
+        pClientes.jtregistro.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent evt)
-            {
+            public void mouseClicked(MouseEvent evt) {
                 seleccion = pClientes.jtregistro.getSelectedRow();
                 pClientes.btnnuevo.setEnabled(true);
                 pClientes.btnregistrar.setEnabled(false);
@@ -182,8 +154,7 @@ public final class ControlClientes implements ActionListener
         });
     }
 
-    public void limpiar()
-    {
+    public void limpiar() {
         pClientes.txtnom.setText("");
         pClientes.txtapellidoP.setText("");
         pClientes.txtapellidoM.setText("");
@@ -191,22 +162,18 @@ public final class ControlClientes implements ActionListener
         pClientes.txtdireccion.setText("");
         pClientes.txtRFC.setText("");
     }
-    
-    public void llenarTabla()
-    {
+
+    public void llenarTabla() {
         pClientes.tReg.setNumRows(0);
         List<ModeloClientes> list = modConsulta.listaClientes();
-        for (int i = 0; i < list.size(); i++)
-        {
-            pClientes.tReg.addRow(new Object[]
-            {
+        for (int i = 0; i < list.size(); i++) {
+            pClientes.tReg.addRow(new Object[]{
                 list.get(i).getNom(),
                 list.get(i).getApP(),
                 list.get(i).getApM(),
                 list.get(i).getNumT(),
                 list.get(i).getDireccion(),
-                list.get(i).getRfc(),
-            });
+                list.get(i).getRfc(),});
         }
         JOptionPane.showMessageDialog(null, "Lista actualizada");
     }

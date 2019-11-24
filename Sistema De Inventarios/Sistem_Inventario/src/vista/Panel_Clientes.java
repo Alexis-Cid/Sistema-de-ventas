@@ -20,31 +20,28 @@ import modelo.sql.ConsultaClientesSQL;
 import modelo.entidades.ModeloClientes;
 
 /**
- * 
- * 
+ *
+ *
  *
  */
+public final class Panel_Clientes extends JPanel {
 
-public final class Panel_Clientes extends JPanel
-{
     private JPanel p1, p2, p3;
     private JLabel lblnom, lblapellidoP, lblapellidoM, lblnumT, lbldireccion, lblRFC;
     public JTextField txtnom, txtapellidoP, txtapellidoM, txtnumT, txtdireccion, txtRFC;
     public JButton btnnuevo, btnregistrar, btnmodificar, btnaceptar, btneliminar;
     public JTable jtregistro;
     public DefaultTableModel tReg;
-        
-    public Panel_Clientes()
-    {
+
+    public Panel_Clientes() {
         init();
-        tReg = (DefaultTableModel)jtregistro.getModel();
+        tReg = (DefaultTableModel) jtregistro.getModel();
         ModeloClientes mod = new ModeloClientes();
         ConsultaClientesSQL modC = new ConsultaClientesSQL();
         ControlClientes ctrl = new ControlClientes(this, mod, modC);
     }
-	
-    public void init()
-    {
+
+    public void init() {
         p1 = new JPanel();
         p2 = new JPanel();
         p3 = new JPanel();
@@ -110,7 +107,7 @@ public final class Panel_Clientes extends JPanel
         txtnumT.setHorizontalAlignment(JTextField.CENTER);
         txtnumT.setBounds(610, 148, 130, 25);
         p1.add(txtnumT);
-		
+
         lbldireccion.setFont(new Font("Agency FB", Font.PLAIN, 18));
         lbldireccion.setBounds(970, 50, 53, 20);
         p1.add(lbldireccion);
@@ -123,7 +120,7 @@ public final class Panel_Clientes extends JPanel
         lblRFC.setFont(new Font("Agency FB", Font.PLAIN, 18));
         lblRFC.setBounds(990, 150, 35, 20);
         p1.add(lblRFC);
-        
+
         txtRFC.setFont(new Font("Consolas", Font.PLAIN, 12));
         txtRFC.setHorizontalAlignment(JTextField.CENTER);
         txtRFC.setBounds(1043, 148, 170, 25);
@@ -146,51 +143,48 @@ public final class Panel_Clientes extends JPanel
         btnregistrar.setBounds(210, 40, 100, 30);
         p2.add(btnregistrar);
 
-	btnmodificar.setFont(new Font("Agency FB", 0, 15));
-	btnmodificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	btnmodificar.setBounds(70, 85, 100, 30);
-	btnmodificar.setEnabled(false);
-	p2.add(btnmodificar);
-        
+        btnmodificar.setFont(new Font("Agency FB", 0, 15));
+        btnmodificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnmodificar.setBounds(70, 85, 100, 30);
+        btnmodificar.setEnabled(false);
+        p2.add(btnmodificar);
+
         btnaceptar.setFont(new Font("Agency FB", 0, 15));
-	btnaceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	btnaceptar.setBounds(210, 85, 100, 30);
-	btnaceptar.setEnabled(false);
-	btnaceptar.setEnabled(false);
+        btnaceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnaceptar.setBounds(210, 85, 100, 30);
+        btnaceptar.setEnabled(false);
+        btnaceptar.setEnabled(false);
         p2.add(btnaceptar);
 
-	btneliminar.setFont(new Font("Agency FB", 0, 15));
-	btneliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	btneliminar.setBounds(210, 130, 100, 30);
-	btneliminar.setEnabled(false);
-	p2.add(btneliminar);
+        btneliminar.setFont(new Font("Agency FB", 0, 15));
+        btneliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btneliminar.setBounds(210, 130, 100, 30);
+        btneliminar.setEnabled(false);
+        p2.add(btneliminar);
 
-	p3.setLayout(null);
-	p3.setBorder(BorderFactory.createTitledBorder(new LineBorder(new Color(80, 80, 255), 1), "Registro - Cliente", TitledBorder.CENTER, TitledBorder.TOP, new Font("Agency FB", 1, 14)));
-	p3.setBounds(50, 270, 1800, 630);
-	p3.setVisible(true);
-	add(p3);
+        p3.setLayout(null);
+        p3.setBorder(BorderFactory.createTitledBorder(new LineBorder(new Color(80, 80, 255), 1), "Registro - Cliente", TitledBorder.CENTER, TitledBorder.TOP, new Font("Agency FB", 1, 14)));
+        p3.setBounds(50, 270, 1800, 630);
+        p3.setVisible(true);
+        add(p3);
 
-	jtregistro = new JTable();
-	jtregistro.setModel(new DefaultTableModel(
-            new Object[][] {},
-            new String[]
-            {
-		"Nombre(s)", "Apellido Paterno", "Apellido Materno", "Numero de Telefono", "Direccion", "R.F.C."
-            })
-            {
-		boolean[] editable = new boolean[]
-                {
-                    false, false, false, false, false, false
-                };
-                @Override
-                public boolean isCellEditable(int row, int column)
-                {
-                    return editable [column];
-                }
-            });
-	JScrollPane js = new JScrollPane(jtregistro);
-	js.setBounds(50, 50, 1700, 540);
-	p3.add(js);
-	}
+        jtregistro = new JTable();
+        jtregistro.setModel(new DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre(s)", "Apellido Paterno", "Apellido Materno", "Numero de Telefono", "Direccion", "R.F.C."
+                }) {
+            boolean[] editable = new boolean[]{
+                false, false, false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return editable[column];
+            }
+        });
+        JScrollPane js = new JScrollPane(jtregistro);
+        js.setBounds(50, 50, 1700, 540);
+        p3.add(js);
+    }
 }

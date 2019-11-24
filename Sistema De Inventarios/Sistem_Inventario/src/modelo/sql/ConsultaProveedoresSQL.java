@@ -17,17 +17,15 @@ import javax.swing.JOptionPane;
 
 /**
  *
-
+ *
  */
-public class ConsultaProveedoresSQL extends Conectar
-{
-    public boolean registrar(ModeloProveedores mproveedor)
-    {
+public class ConsultaProveedoresSQL extends Conectar {
+
+    public boolean registrar(ModeloProveedores mproveedor) {
         PreparedStatement ps = null;
         Connection con = getConnection();
         String sql = "INSERT INTO proveedores (Codigo, Nombre, Apellido_Paterno, Apellido_Materno, Empresa, Telefono, Direccion) VALUES(?,?,?,?,?,?,?)";
-        try
-        {
+        try {
             ps = con.prepareStatement(sql);
             ps.setString(1, mproveedor.getCodigo());
             ps.setString(2, mproveedor.getNombre());
@@ -38,46 +36,37 @@ public class ConsultaProveedoresSQL extends Conectar
             ps.setString(7, mproveedor.getDireccion());
             ps.execute();
             return true;
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR = " + e, "ERROR", 0);
             return false;
         }
     }
-    
-    public boolean eliminar(ModeloProveedores mproveedor)
-    {
+
+    public boolean eliminar(ModeloProveedores mproveedor) {
         PreparedStatement ps = null;
         Connection con = getConnection();
         String sql = "DELETE FROM proveedor WHERE Codigo = ?";
-        try
-        {
+        try {
             ps = con.prepareStatement(sql);
             ps.setString(1, mproveedor.getCodigo());
             ps.execute();
             return true;
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR = " + e, "ERROR", 0);
             return false;
         }
     }
-    
-    public List<ModeloProveedores> listaProveedores()
-    {
+
+    public List<ModeloProveedores> listaProveedores() {
         List<ModeloProveedores> lista = null;
         PreparedStatement consulta = null;
         Connection con = getConnection();
         ResultSet conjuntoResultados = null;
-        try 
-        {
+        try {
             consulta = con.prepareStatement("select * from proveedores");
             conjuntoResultados = consulta.executeQuery();
             lista = new ArrayList<>();
-            while(conjuntoResultados.next())
-            {
+            while (conjuntoResultados.next()) {
                 lista.add(new ModeloProveedores(
                         conjuntoResultados.getString("Codigo"),
                         conjuntoResultados.getString("Nombre"),
@@ -88,9 +77,7 @@ public class ConsultaProveedoresSQL extends Conectar
                         conjuntoResultados.getString("direccion")
                 ));
             }
-        }
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         return lista;

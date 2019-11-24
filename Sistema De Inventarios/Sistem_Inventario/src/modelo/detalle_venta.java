@@ -1,8 +1,7 @@
-
 package modelo;
 
-public class detalle_venta 
-{
+public class detalle_venta {
+
     private String IdVenta;
     private String cantidad;
     private String PodigoProducto;
@@ -48,6 +47,5 @@ public class detalle_venta
     public void setMontoTotal(String MontoTotal) {
         this.MontoTotal = MontoTotal;
     }
-    
-    
+
 }
