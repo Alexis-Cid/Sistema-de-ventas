@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 //import AppPackage.AnimationClass;
 import modelo.CambioPanel;
+import modelo.entidades.Usuarios;
+import modelo.sql.UsuariosSQL;
 import vista.LoginFrm;
 import vista.User_Admin;
 
@@ -25,7 +27,7 @@ public class FuncionesAdmin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        /*if (evt.getSource() == admin.btnmenu) {
+        if (evt.getSource() == admin.btnmenu) {
             int posicion = admin.jpmenu.getX();
             if (posicion > -1) {
                 Animacion.Animacion.mover_izquierda(0, -300, 2, 3, admin.jpmenu);
@@ -108,7 +110,7 @@ public class FuncionesAdmin implements ActionListener {
             admin.btnfacturar.setEnabled(true);
             Animacion.Animacion.mover_izquierda(0, -300, 2, 3, admin.jpmenu);
         } else if (evt.getSource() == admin.btnfacturar) {
-            //new CambioPanel(admin.pnlPrincipal, new vista.Panel_Facturacion());
+            new CambioPanel(admin.pnlPrincipal, new vista.Panel_Facturar());
             admin.btnfacturar.setOpaque(true);
             admin.btnfacturar.setEnabled(false);
             admin.btnempleados.setOpaque(false);
@@ -123,9 +125,12 @@ public class FuncionesAdmin implements ActionListener {
             admin.btnRegVentas.setEnabled(true);
             Animacion.Animacion.mover_izquierda(0, -300, 2, 3, admin.jpmenu);
         } else if (evt.getSource() == admin.btncerrar) {
-            Principal_Login princ = new Principal_Login();
-            princ.setVisible(true);
+            LoginFrm princ = new LoginFrm();
+            Usuarios modelo = new Usuarios();
+            UsuariosSQL sql = new UsuariosSQL();
+        
+            FuncionesLogin ctrl = new FuncionesLogin(princ, modelo, sql);
             admin.dispose();
-        }*/
+        }
     }
 }
