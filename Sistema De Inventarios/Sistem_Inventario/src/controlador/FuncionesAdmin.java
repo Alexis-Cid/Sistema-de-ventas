@@ -12,6 +12,7 @@ import vista.User_Admin;
 public class FuncionesAdmin implements ActionListener {
 
     private final User_Admin admin;
+    
 
     public FuncionesAdmin(User_Admin admin) {
         this.admin = admin;

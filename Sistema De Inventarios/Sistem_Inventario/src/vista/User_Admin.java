@@ -27,6 +27,7 @@ public final class User_Admin extends JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     public void init() {
@@ -137,5 +138,9 @@ public final class User_Admin extends JFrame {
         CambioPanel CambioPanel = new CambioPanel(pnlPrincipal, new vista.Panel_Empleados());
 
         add(js);
+    }
+    
+    public static void main(String[] args) {
+        new User_Admin();
     }
 }

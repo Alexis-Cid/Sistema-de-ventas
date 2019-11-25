@@ -14,6 +14,7 @@ import vista.User_Empleado;
 
 import modelo.entidades.Usuarios;
 import modelo.sql.UsuariosSQL;
+import vista.Dashboard;
 /**
  *
  * @author ALEXIS
@@ -108,8 +109,11 @@ public class FuncionesLogin implements ActionListener, MouseListener, MouseMotio
         modeloUsuario.setPassword(plog.slidePanel.passPanel.txtPassword.getText());
         if(sqlUsuario.iniciarSesion(modeloUsuario))
         {
-            User_Admin admin = new User_Admin();
-            admin.setVisible(true);
+            Usuarios encontrado = sqlUsuario.usuarioLogueado(modeloUsuario);
+            Dashboard vista = new Dashboard();
+            DashboardController ctrl = new DashboardController(vista, encontrado, sqlUsuario);
+            //User_Admin admin = new User_Admin();
+            //admin.setVisible(true);
             plog.dispose();
         }
         else
